@@ -1,9 +1,17 @@
-.header--background {
- /* width: 100vw; */
- background-repeat: no-repeat;
- background-position: center;
- background-size: cover;
+header {
+ width: 100vw;
  height: 100vh;
+}
+
+.background--image {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .menu__nav {

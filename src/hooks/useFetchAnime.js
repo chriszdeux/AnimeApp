@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAnimes } from '../helpers/getFetch';
+import {  getSearchAnimes, getTopAnimes } from '../helpers/getFetch';
 
 export const useFetchAnime = ( animes ) => {
   const [state, setState] = useState({
@@ -8,7 +8,7 @@ export const useFetchAnime = ( animes ) => {
   });
 
   useEffect(() => {
-    getAnimes(animes)
+    getSearchAnimes(animes)
       .then(anime => {
         setState({
           data: anime,
@@ -16,6 +16,26 @@ export const useFetchAnime = ( animes ) => {
         })
       })
   }, [animes])
-  // debugger
+
+  return state
+}
+
+export const useFetchTopAnime = () => {
+  const [state, setState] = useState({
+    topData: [],
+    loading: true
+  });
+
+  useEffect(() => {
+    getTopAnimes()
+      .then(img => {
+        // debugger
+        setState({
+          topData: img,
+          loading: false
+        })
+      })
+  }, [ ])
+
   return state
 }

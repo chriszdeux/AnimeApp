@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useFetchAnime } from '../../hooks/useFetchAnime';
+import { useFetchAnime, useFetchTopAnime } from '../../hooks/useFetchAnime';
 import { useShowContent } from '../../hooks/useShowContent';
 // import { Menu } from './Menu';
 
@@ -11,16 +11,29 @@ export const NavbarMenu = () => {
   const [showContent, toggleShowContent] = useShowContent();
   const [anime, setAnime] = useState('');
   const { data, loading } = useFetchAnime(anime)
+  // const [topAnime, setTopAnime] = useState( get )
+  const { topData } = useFetchTopAnime()
 
   useEffect(() => {
 
   }, [anime])
 
-  // getFetch()
-  // console.log(data, loading)
-  console.log(data)
+
+  // if( !data[0]  === undefined ) {
+    //   debugger
+    // }
+    
+    // getFetch()
+    // console.log(data, loading)
+    console.log(data)
+    console.log(topData)
+    // debugger
+  // debugger
   return (
-    <header>
+    <header  >
+      <figure className="background--image" style={{ backgroundImage: `url(${topData})` }}>
+        
+      </figure>
       <nav className="menu__nav container">
         <h3>AnimeApp</h3>
         <div className="right__side__container">

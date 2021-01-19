@@ -9,10 +9,10 @@
   --second-color: #16c79a;
 
   /*FONT-SIZE*/
-  --small-font-size: 1.4rem;
-  --regular-font-size: 1.6rem;
-  --large-font-size: 1.8rem;
-  --extra-large-font-size: 2rem;
+  --small-font-size: 1.6rem;
+  --regular-font-size: 1.8rem;
+  --large-font-size: 2rem;
+  --extra-large-font-size: 2.2rem;
 }
 
 * {
