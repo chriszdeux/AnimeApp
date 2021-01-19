@@ -2,14 +2,9 @@ import React from 'react'
 
 export const Menu = () => {
   return (
-    <header>
-      <nav>
-        <h2>AnimeApp</h2>
-
-        <div>
-          
-        </div>
-      </nav>
-    </header>
+      <div className="right__side__container">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-icon name="grid-outline"></ion-icon>
+      </div>
   )
 }

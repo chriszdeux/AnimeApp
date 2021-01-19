@@ -1,0 +1,40 @@
+:root {
+
+  /*COLORS*/
+  /* --background-color: #102f4b; */
+  --background-color: #0d263b;
+  /* --font-color: #e7d9ea; */
+  --font-color: #f1f1f1;
+  --main-color: #11698e;
+  --second-color: #16c79a;
+
+  /*FONT-SIZE*/
+  --small-font-size: 1.4rem;
+  --regular-font-size: 1.6rem;
+  --large-font-size: 1.8rem;
+  --extra-large-font-size: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: 'Sunflower', Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background-color);
+  font-size: var(--regular-font-size);
+}
+
+.container {
+  padding: 0 15px;
+}
+
+ion-icon {
+  font-size: var(--regular-font-size);
+}

@@ -1,9 +1,12 @@
 import React from 'react';
+import { NavbarMenu } from './components/header/NavbarMenu';
+
+import './main-styles.css'
 
 export const AnimeApp = () => {
   return (
     <>
-      <h1>AnimeApp</h1>
+      <NavbarMenu />
     </>
   )
 }

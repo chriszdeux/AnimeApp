@@ -1,0 +1,55 @@
+.header--background {
+ /* width: 100vw; */
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ height: 100vh;
+}
+
+.menu__nav {
+  display: flex;
+  /* position: relative; */
+  width: 100vw;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--font-color);
+  /* padding: 50px; */
+}
+
+header h3 {
+  width: 20%;
+}
+
+.search__form {
+  display: flex;
+  /* visibility: hidden; */
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.search__form .search--input {
+  width: 70%;
+  height: 30px;
+  outline-color: var(--second-color);
+  outline-style: none;
+}
+
+.search__form button {
+  width: 50px;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline-style: none;
+  background-color: var(--second-color);
+  color: var(--font-color);
+}
+/* .right__side__container {} */
+
+.right__side__container ion-icon {
+  margin-right: 10px;
+  font-size: var(--extra-large-font-size);
+  cursor: pointer;
+}
+
