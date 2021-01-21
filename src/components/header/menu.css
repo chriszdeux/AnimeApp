@@ -40,6 +40,7 @@ header h3 {
 }
 
 .search__form .search--input {
+  z-index: 11;
   width: 70%;
   height: 30px;
   outline-color: var(--second-color);
