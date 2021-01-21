@@ -20,7 +20,9 @@ export const getSearchAnimes = async ( anime ) => {
   if(anime !== '') {
     const response = await fetch(`${ MAIN_URL }${searchAnime}${encodeURIComponent(anime)}`, myCredentials);
 
-    const { results } = await response.json()
+    const { results } = await response.json();
+
+    
     const animeSearch = await results.map(anime => {
       return {
         title: anime.title,
@@ -31,6 +33,9 @@ export const getSearchAnimes = async ( anime ) => {
         url: anime.url
       }
     })
+
+    const top10 = animeSearch.slice(0,9);
+    // debugger
     return animeSearch
   } 
   return anime
@@ -40,12 +45,18 @@ export const getSearchAnimes = async ( anime ) => {
 export const getTopAnimes = async () => {
   const topAnimeResponse = await fetch(`${MAIN_URL}${topAnimes}`, myCredentials);
   const { top } = await topAnimeResponse.json()
+  
+  // const {image_url:image, title, url} = top;
   // debugger
-  // const animeTop = top.map(anime => {
-  //   return {
-  //     image: anime.image_url
-  //   }
-  // })
-  // return animeTop
-  return top[randomImage].image_url
+  const animeTop = top.map(anime => {
+    return {
+      title: anime.title,
+      image: anime.image_url,
+      url: anime.url
+    }
+  })
+
+  // debugger
+  return animeTop
+  // return top[randomImage].image_url && top[randomImage].title && top[randomImage].url 
 }

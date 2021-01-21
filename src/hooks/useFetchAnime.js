@@ -21,6 +21,7 @@ export const useFetchAnime = ( animes ) => {
 }
 
 export const useFetchTopAnime = () => {
+  // debugger
   const [state, setState] = useState({
     topData: [],
     loading: true

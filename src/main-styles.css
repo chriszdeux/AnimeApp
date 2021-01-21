@@ -38,3 +38,14 @@ body {
 ion-icon {
   font-size: var(--regular-font-size);
 }
+
+.watch--now {
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: var(--second-color);
+  outline-style: none;
+  cursor: pointer;
+  color: var(--font-color);
+  font-size: var(--large-font-size);
+}
