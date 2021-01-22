@@ -31,6 +31,10 @@ body {
   font-size: var(--regular-font-size);
 }
 
+ul, li, ol {
+  list-style: none;
+}
+
 .container {
   padding: 0 15px;
 }

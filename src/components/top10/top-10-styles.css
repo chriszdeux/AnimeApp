@@ -1,0 +1,39 @@
+ul {
+  display: flex;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+ul li {
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin:border-box;
+  /* border: 1px solid red; */
+  position: relative;
+  margin-right:10px ;
+}
+li p {
+  /* width: 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+  background-color: var(--main-color);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* text-align: center; */
+  
+  z-index: 1;
+}
+li img {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  object-fit: cover;
+  opacity: 0.5;
+}

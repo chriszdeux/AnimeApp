@@ -13,6 +13,7 @@ const randomPage = Math.floor(Math.random() * 5 ) + 1
 
 const searchAnime = `search/anime?q=`
 const topAnimes = `top/anime/${randomPage}/upcoming`
+const top10Animes = `top/anime/1/upcoming`
 
 // debugger
 export const getSearchAnimes = async ( anime ) => {
@@ -22,7 +23,7 @@ export const getSearchAnimes = async ( anime ) => {
 
     const { results } = await response.json();
 
-    
+    // <debugger></debugger>
     const animeSearch = await results.map(anime => {
       return {
         title: anime.title,
@@ -43,20 +44,39 @@ export const getSearchAnimes = async ( anime ) => {
 }
 
 export const getTopAnimes = async () => {
-  const topAnimeResponse = await fetch(`${MAIN_URL}${topAnimes}`, myCredentials);
+  const topAnimeResponse = await fetch(`${MAIN_URL}${top10Animes}`, myCredentials);
   const { top } = await topAnimeResponse.json()
   
   // const {image_url:image, title, url} = top;
   // debugger
+  // debugger
   const animeTop = top.map(anime => {
     return {
+      id: anime.mal_id,
       title: anime.title,
       image: anime.image_url,
       url: anime.url
     }
   })
 
-  // debugger
+  // const top10Anime = animeTop.slice(0, 9);
+
   return animeTop
   // return top[randomImage].image_url && top[randomImage].title && top[randomImage].url 
 }
+
+
+// const getTop10 = async () => {
+//   const responseTop10 = await fetch(`${MAIN_URL}${top10Animes}`, myCredentials);
+//   const { top } = await responseTop10.json()
+
+//   const top10 = top.results(anime => {
+//     return {
+//       title: anime.title,
+
+//     }
+//   }  )
+//   debugger 
+// }
+
+// getTop10();

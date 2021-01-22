@@ -1,17 +1,24 @@
-import React from 'react';
-import './hero-style.css';
+import React from 'react'
+import { useFetchTopAnime } from '../../hooks/useFetchAnime'
 
-export const Hero = ( {title, image, url } ) => {
+import './hero-styles.css';
 
+const randomBackground = Math.floor(Math.random() * 50) + 1;
+export const Hero = () => {
+  const {topData, loading} = useFetchTopAnime()
+  const {image, title, url} = !!topData[randomBackground] && topData[randomBackground]
+  // debugger
   return (
-    <main className="hero" >      
-      <figure className="hero__background">
-        <img src={ image } alt=""/>
-      </figure>
-      <h3>{ title }</h3>
-      <form action={ url } target="_blank">
-        <button className="watch--now">Watch Now</button>
-      </form>
+    <main className="hero">
+      <img src={image} alt=""/>
+      
+      <div>
+        <h3>{title}</h3>
+        <a href={url} target="_blank">
+          <button className="watch--now" >Watch Now</button>
+        </a>
+
+      </div>
     </main>
   )
 }
