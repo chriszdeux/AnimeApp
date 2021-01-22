@@ -43,23 +43,41 @@ header h3 {
 .search__form .search--input {
   z-index: 11;
   width: 70%;
-  height: 30px;
+  height: 40px;
   outline-color: var(--second-color);
   outline-style: none;
+  font-family: 'Sunflower';
+  font-size: var(--large-font-size);
+  color: var(--second-color);
 }
 
 .search__form button {
-  width: 50px;
+  width: 80px;
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   outline-style: none;
   background-color: var(--second-color);
+  font-family: 'Sunflower';
+  font-size: var(--large-font-size);
   color: var(--font-color);
 }
 /* .right__side__container {} */
 
-.right__side__container ion-icon {
+/* .right__side__container ion-icon {
+  margin-right: 10px;
+  font-size: var(--extra-large-font-size);
+  cursor: pointer;
+} */
+
+/* .right__side__container .menu--icon {
+  margin-right: 10px;
+  font-size: 2.3rem;
+  font-size: var(--extra-large-font-size);
+  cursor: pointer; */
+/* } */
+
+.right__side__container .menu--icons {
   margin-right: 10px;
   font-size: var(--extra-large-font-size);
   cursor: pointer;

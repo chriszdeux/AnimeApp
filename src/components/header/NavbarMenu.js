@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { IoReorderFourSharp, IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
+// import { IoSearchOutline } from 'react-icons/ri';
+
 import { useFetchAnime, useFetchTopAnime } from '../../hooks/useFetchAnime';
 import { useShowContent } from '../../hooks/useShowContent';
 
@@ -25,19 +28,18 @@ export const NavbarMenu = () => {
         <div className="right__side__container">
           {
             (!showContent)
-              ? <ion-icon 
-                name="search-outline"
+              ? <IoSearchOutline                  className="menu--icons"
                 onClick={ toggleShowContent }
-                >
-                </ion-icon>
-              : <ion-icon 
-                  name="close-outline"
+              />
+              : <IoCloseOutline 
+                  className="menu--icons"
                   onClick={ toggleShowContent }
-                >
-                </ion-icon>
+                />
+
+              
           }
 
-            <ion-icon name="menu-sharp"></ion-icon>
+            <IoReorderFourSharp className="menu--icons"/> 
         </div>
       </nav>
       {
