@@ -7,13 +7,14 @@ export const Top10Anime = () => {
   const top10 = topData.slice(0,10);
   // debugger
   return (
-    <section>
+    <section className="top10">
       <h2>Top 10 Anime</h2>
-      <ul>
+      <ul className="top10__list">
         {
           top10.map(({title, image, url, id}, index) => (
             <li 
               key={id} 
+              className="top10__list__item"
             //   style={{
             //   backgroundImage:`url(${image})`
             // }}
@@ -22,7 +23,8 @@ export const Top10Anime = () => {
               <img src={image} alt={title}/>
               {/* <p>{title}</p> */}
             </li>
-          ))
+          )
+          )
         }
       </ul>
     </section>

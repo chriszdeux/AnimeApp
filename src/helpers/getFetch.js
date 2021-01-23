@@ -11,9 +11,10 @@ const myCredentials = {
 const randomImage = Math.floor(Math.random() * 49 )
 const randomPage = Math.floor(Math.random() * 5 ) + 1
 
-const searchAnime = `search/anime?q=`
-const topAnimes = `top/anime/${randomPage}/upcoming`
-const top10Animes = `top/anime/1/upcoming`
+const searchAnime = `search/anime?q=`;
+const topAnimes = `top/anime/${randomPage}/upcoming`;
+const top10Animes = `top/anime/1/upcoming`;
+const seasonAnime = `season/2020/winter`;
 
 // debugger
 export const getSearchAnimes = async ( anime ) => {
@@ -80,3 +81,30 @@ export const getTopAnimes = async () => {
 // }
 
 // getTop10();
+
+
+export const getSeasonAnimes = async () => {
+  const responseSeasonAnime = await fetch(`${MAIN_URL}${seasonAnime}`, myCredentials);
+  const { anime } = await responseSeasonAnime.json();
+  const animesSeason = anime.slice(22,42)
+
+  const animeData = animesSeason.map(anime => {
+    return {
+      id: anime.mal_id,
+      title: anime.title,
+      score: anime.score,
+      image: anime.image_url,
+      genre: anime.genres,
+      synopsis: anime.synopsis,
+      type: anime.type,
+      url: anime.url,
+      episodes: anime.episodes
+    }
+  })
+
+
+  return animeData
+  // debugger
+}
+
+// getSeasonAnimes();

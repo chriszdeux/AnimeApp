@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {  getSearchAnimes, getTopAnimes } from '../helpers/getFetch';
+import {  getSearchAnimes, getTopAnimes, getSeasonAnimes } from '../helpers/getFetch';
 
 export const useFetchAnime = ( animes ) => {
   const [state, setState] = useState({
@@ -38,5 +38,24 @@ export const useFetchTopAnime = () => {
       })
   }, [ ])
 
+  return state
+}
+export const useFetchSeasonAnime = () => {
+  const [state, setState] = useState({
+    data: [],
+    loading: true
+  });
+
+  useEffect(() => {
+    getSeasonAnimes()
+      .then(anime => {
+        setState({
+          data: anime,
+          loading: false
+        })
+      })
+    }, [  ])
+    
+    // debugger
   return state
 }
