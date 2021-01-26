@@ -13,7 +13,7 @@ const randomPage = Math.floor(Math.random() * 5 ) + 1
 
 const searchAnime = `search/anime?q=`;
 const topAnimes = `top/anime/${randomPage}/upcoming`;
-const top10Animes = `top/anime/1/upcoming`;
+const top10Animes = `top/anime/2/upcoming`;
 const seasonAnime = `season/2020/winter`;
 
 // debugger
@@ -86,7 +86,7 @@ export const getTopAnimes = async () => {
 export const getSeasonAnimes = async () => {
   const responseSeasonAnime = await fetch(`${MAIN_URL}${seasonAnime}`, myCredentials);
   const { anime } = await responseSeasonAnime.json();
-  const animesSeason = anime.slice(22,42)
+  const animesSeason = anime.slice(0,20)
 
   const animeData = animesSeason.map(anime => {
     return {

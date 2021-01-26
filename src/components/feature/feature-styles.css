@@ -1,4 +1,7 @@
 .feature__anime {
+  display:  flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 30px;
   width: 100%;
   height: auto;
@@ -9,8 +12,10 @@
   margin-bottom: 10px;
 }
 .feature__anime__list {
-  width: 100%;
-  display: block;
+  width: 95%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  justify-content: center;
   height: auto;
 }
 
@@ -22,7 +27,7 @@
   /* max-width: 300px;; */
   /* height: auto; */
   margin-bottom: 10px;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   background-color: var(--main-color);
   opacity: 0.7;
   box-shadow: inset 0 0 19px #000;
@@ -34,7 +39,7 @@
 .anime__item:hover {
   transition: ease;
   transition-duration: 0.3s;
-  transform: scale(1.08);
+  transform: scale(1.03);
   opacity: 1;
 }
 
@@ -55,6 +60,7 @@
   margin-right: 10px;
   object-fit: cover;
   border-radius: 0;
+  opacity: 0.7;
   /* box-shadow: 20px 0px 9px -9px rgba(0,0,0,0.3); */
 }
 
@@ -84,3 +90,94 @@
   cursor: pointer;
 }
 /* padding-right: 10px; */
+
+.info__card {
+  /* width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: red;
+  z-index: 100; */
+}
+
+.info__card__img {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.info__card__img img {
+  width: 90%;
+  object-fit: cover;
+  opacity: 0.6;
+  margin-bottom: 50px;
+  box-shadow: 0 5px 20px 10px black;
+  /* position: fixed; */
+}
+
+.info__card__img h3 {
+  position: absolute;
+  bottom: 50px;
+  color: var(--second-color);
+  width: 90%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.514);
+  /* text-align: center; */
+
+  /* margin-bottom: 15px; */
+}
+
+.Modal {
+  /* display: flex;
+  justify-content: center; */
+  position: absolute;
+  height:   auto;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: var(--main-color);
+  /* text-align: center; */
+  overflow-y: auto;
+  outline-style: none;
+  color: white;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-color);
+  z-index: 2;
+}
+
+/* .Modal .IoCloseOutline {
+  text-align: center;
+} */
+
+.Modal--close{
+  display: flex;
+  justify-content: flex-end;
+  z-index: 10;
+
+}
+
+.Modal--close .IoCloseOutline {
+  font-size: var(--extra-large-font-size);
+  color: var(--second-color);
+}
+
+.info__card__gender {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.info__card__gender li {
+  margin: 0 10px;
+  font-size: var(--small-font-size);
+}

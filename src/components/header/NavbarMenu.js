@@ -28,8 +28,9 @@ export const NavbarMenu = () => {
         <div className="right__side__container">
           {
             (!showContent)
-              ? <IoSearchOutline                  className="menu--icons"
-                onClick={ toggleShowContent }
+              ? <IoSearchOutline
+                  className="menu--icons"
+                  onClick={ toggleShowContent }
               />
               : <IoCloseOutline 
                   className="menu--icons"
