@@ -5,7 +5,6 @@ import { AnimeItem } from './AnimeItem';
 import './feature-styles.css';
 export const FeatureAnimes = () => {
   const { data:animeSeason, loading } = useFetchSeasonAnime()
-  // debugger
   return (
     <section className="feature__anime">
       <h2>Feature</h2>

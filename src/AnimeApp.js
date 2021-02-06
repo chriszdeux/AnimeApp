@@ -5,7 +5,6 @@ import { Hero } from './components/hero/Hero';
 import { Top10Anime } from './components/top10/Top10Anime';
 
 import './main-styles.css'
-// const randomAnime = Math.floor(Math.random() * 49) + 1;
 
 
 export const AnimeApp = () => {

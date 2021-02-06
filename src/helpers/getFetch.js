@@ -13,44 +13,46 @@ const randomPage = Math.floor(Math.random() * 5 ) + 1
 
 const searchAnime = `search/anime?q=`;
 const topAnimes = `top/anime/${randomPage}/upcoming`;
-const top10Animes = `top/anime/2/upcoming`;
-const seasonAnime = `season/2020/winter`;
+const top10Animes = `top/anime/1/upcoming`;
+const seasonAnime = `season/2019/fall`;
+// const genreAnime = `enre/anime/1/1`
 
-// debugger
 export const getSearchAnimes = async ( anime ) => {
 
-  if(anime !== '') {
-    const response = await fetch(`${ MAIN_URL }${searchAnime}${encodeURIComponent(anime)}`, myCredentials);
-
-    const { results } = await response.json();
-
-    // <debugger></debugger>
-    const animeSearch = await results.map(anime => {
-      return {
-        title: anime.title,
-        description: anime.synopsis,
-        img: anime?.image_url,
-        type: anime.type,
-        episodes: anime.episodes,
-        url: anime.url
-      }
-    })
-
-    const top10 = animeSearch.slice(0,9);
-    // debugger
-    return animeSearch
-  } 
-  return anime
+  // const animeUpper = anime.toUpperCase();
+  // debugger
+  try {
+    if(anime !== '') {
+      const response = await fetch(`${ MAIN_URL }${searchAnime}${anime}`, myCredentials);
+      // debugger
+      // const response = await fetch(`${ MAIN_URL }${searchAnime}${encodeURIComponent(anime)}`, myCredentials);
+      const { results } = await response.json();
+      // debugger
+      const animeSearch = await results.map(anime => {
+        return {
+          title: anime.title,
+          description: anime.synopsis,
+          img: anime?.image_url,
+          type: anime.type,
+          episodes: anime.episodes,
+          url: anime.url
+        }
+      })
+  
+      // const top10 = animeSearch.slice(0,9);
+      return animeSearch
+    } 
+  } catch (error) {
+    // console.error(`need to try again ${error}`)
+    return anime
+  }
+  // return anime
 
 }
 
 export const getTopAnimes = async () => {
   const topAnimeResponse = await fetch(`${MAIN_URL}${top10Animes}`, myCredentials);
   const { top } = await topAnimeResponse.json()
-  
-  // const {image_url:image, title, url} = top;
-  // debugger
-  // debugger
   const animeTop = top.map(anime => {
     return {
       id: anime.mal_id,
@@ -60,28 +62,9 @@ export const getTopAnimes = async () => {
     }
   })
 
-  // const top10Anime = animeTop.slice(0, 9);
 
   return animeTop
-  // return top[randomImage].image_url && top[randomImage].title && top[randomImage].url 
 }
-
-
-// const getTop10 = async () => {
-//   const responseTop10 = await fetch(`${MAIN_URL}${top10Animes}`, myCredentials);
-//   const { top } = await responseTop10.json()
-
-//   const top10 = top.results(anime => {
-//     return {
-//       title: anime.title,
-
-//     }
-//   }  )
-//   debugger 
-// }
-
-// getTop10();
-
 
 export const getSeasonAnimes = async () => {
   const responseSeasonAnime = await fetch(`${MAIN_URL}${seasonAnime}`, myCredentials);
@@ -104,7 +87,51 @@ export const getSeasonAnimes = async () => {
 
 
   return animeData
-  // debugger
 }
 
-// getSeasonAnimes();
+export const getGenreAnimes = async () => {
+
+  let genreAnimes = [];
+  let animeByGenre = [];
+
+  try {
+    for (let i = 1; i < 44; i ++) {
+      const response = await fetch(`${MAIN_URL}genre/anime/${i}/1`,myCredentials);
+
+      const data = await response.json();
+      genreAnimes.push(data)
+      // return {
+        //   genreTitle: ,
+        //   animesByGenre: anime
+        // }
+        // debugger
+        // return [...name]
+        // animeByGenre = [...anime];
+        
+        // genreAnimes = [genreAnimes, ...name]
+        // debugger
+      }
+    } catch (error) {
+      console.error('data not found')
+    }
+    // console.log(genreAnimes)
+    // debugger
+    // return [genreAnimes, animeByGenre];
+    // return genreAnimes
+    // const getAnimeGenre = genreAnimes.map(category => {
+      //   // debugger
+      //   return category
+      // });
+      
+      // debugger
+      // const getAnimeByGenre = animeByGenre.map(category => {
+        //   return {
+          //     // name:
+          //   }
+          // })
+          // return getAnimeGenre;
+          // debugger
+          return genreAnimes
+        }
+        
+        // getGenreAnimes();

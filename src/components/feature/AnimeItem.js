@@ -12,9 +12,8 @@ export const AnimeItem = (anime) => {
   const [showContent, toggleShowContent] = useShowContent();
 
 
+  // const [open, setOpen] = useState(false)
 
-  const [open, setOpen] = useState(false)
-  // debugger
   const {
       id,
       title,
@@ -35,31 +34,24 @@ export const AnimeItem = (anime) => {
       </div>
       <VscLinkExternal  
         className="feature--info"
-        // onClick={ toggleShowContent }
-        onClick={() => setOpen(true)}
+        onClick={() => toggleShowContent(showContent)}
       />
 
-      {/* {
-        showContent && <InfoCard anime={ anime }/>
-      } */}
       <Modal 
         ariaHideApp={false}
         className="Modal"
         overlayClassName="Overlay"
-        isOpen={open}>
+        isOpen={showContent}>
           
           <div className="Modal--close">
             <IoCloseOutline
               className="IoCloseOutline"
-              onClick={() => setOpen(false)}
+              onClick={() => toggleShowContent(showContent)}
             />
           </div>  
-          {/* <button onClick={() => setOpen(false)}>close</button> */}
-          <InfoCard open={ setOpen } {...anime}/> 
-          {/* <InfoCard /> */}
+          <InfoCard open={ toggleShowContent } {...anime}/> 
 
       </Modal>
-      {/* <IoCloseOutline /> */}
     </li>
   )
 }

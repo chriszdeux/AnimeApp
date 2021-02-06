@@ -3,7 +3,7 @@ header {
  width: 100vw;
  top: 0;
  /* height: 100vh; */
- z-index: 10;
+ z-index: 1;
 }
 
 .background--image {
@@ -41,7 +41,7 @@ header h3 {
 }
 
 .search__form .search--input {
-  z-index: 11;
+  z-index: 1;
   width: 70%;
   height: 40px;
   outline-color: var(--second-color);
@@ -84,3 +84,60 @@ header h3 {
   cursor: pointer;
 }
 
+.menu__modal {
+  /* display: flex;
+  justify-content: center; */
+  position: absolute;
+  height:   auto;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: var(--main-color);
+  /* text-align: center; */
+  overflow-y: auto;
+  outline-style: none;
+  color: white;
+}
+
+.menu__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-color);
+  z-index: 2;
+}
+
+.abc__chart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.abc__chart .abc--letter {
+  margin: 10px;
+  padding: 5px;
+}
+
+.genre__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  font-size: var(--small-font-size);
+}
+
+.genre__list .genre--item {
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}

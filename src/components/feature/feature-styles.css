@@ -181,3 +181,7 @@
   margin: 0 10px;
   font-size: var(--small-font-size);
 }
+
+.info__card .info--synopsis {
+  font-size: var(--small-font-size);
+}

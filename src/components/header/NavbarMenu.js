@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { IoReorderFourSharp, IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
-// import { IoSearchOutline } from 'react-icons/ri';
+import Modal from 'react-modal';
+import { IoReorderFourSharp as MenuIcon, IoSearchOutline, IoCloseOutline as CloseIcon} from 'react-icons/io5';
 
-import { useFetchAnime, useFetchTopAnime } from '../../hooks/useFetchAnime';
+import { useFetchAnime, useFetchGenreAnime, useFetchTopAnime } from '../../hooks/useFetchAnime';
 import { useShowContent } from '../../hooks/useShowContent';
 
 
 import './menu.css'
 import { SearchInput } from './SearchInput';
+import { AbcChart } from './AbcChart';
+import { AnimeGenreItem } from './AnimeGenreItem';
 
 
 export const NavbarMenu = () => {
@@ -15,10 +17,17 @@ export const NavbarMenu = () => {
 
   const [showContent, toggleShowContent] = useShowContent();
   const [anime, setAnime] = useState('');
-  const { data, loading } = useFetchAnime(anime)
+  const { data, loading } = useFetchAnime(anime);
+  const { genreData } = useFetchGenreAnime();
+
+  // debugger
   useEffect(() => {
     
   }, [anime])
+
+  useEffect(() => {
+
+  }, [ genreData ])
   console.log(data)
   
   return (
@@ -26,26 +35,31 @@ export const NavbarMenu = () => {
       <nav className="menu__nav container">
         <h3>AnimeApp</h3>
         <div className="right__side__container">
-          {
-            (!showContent)
-              ? <IoSearchOutline
-                  className="menu--icons"
-                  onClick={ toggleShowContent }
-              />
-              : <IoCloseOutline 
-                  className="menu--icons"
-                  onClick={ toggleShowContent }
-                />
 
-              
-          }
+            
+            <MenuIcon 
+              className="menu--icons"
+              onClick={ () => toggleShowContent(showContent)}
+            /> 
 
-            <IoReorderFourSharp className="menu--icons"/> 
+            <Modal
+              ariaHideApp={ false }
+              className="menu__modal"
+              overlayClassName="menu__overlay"
+              isOpen={ showContent }
+            > 
+              <CloseIcon className="menu--icons" onClick={ () => toggleShowContent(showContent)}/>
+
+              <SearchInput setAnime={ setAnime }/>
+
+              <AbcChart/>
+              <AnimeGenreItem genreData={ genreData }/>
+            </Modal>
         </div>
       </nav>
-      {
+      {/* {
         showContent && < SearchInput setAnime={ setAnime }/>
-      }
+      } */}
     </header>
   )
 }
