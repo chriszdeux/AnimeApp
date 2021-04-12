@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {  getSearchAnimes, getTopAnimes, getSeasonAnimes, getGenreAnimes } from '../helpers/getFetch';
+import {  getSearchAnimes, getTopAnimes, getSeasonAnimes } from '../helpers/getFetch';
 
 export const useFetchAnime = ( animes ) => {
   const [state, setState] = useState({
@@ -60,22 +60,22 @@ export const useFetchSeasonAnime = () => {
   return state
 }
 
-export const useFetchGenreAnime = () => {
-  const [state, setState] = useState({
-    genreData: [],
-    loading: true
-  });
+// export const useFetchGenreAnime = () => {
+//   const [state, setState] = useState({
+//     genreData: [],
+//     loading: true
+//   });
 
-  useEffect(() => {
-    getGenreAnimes()
-      .then(genre => {
-        // debugger
-        setState({
-          genreData: genre,
-          loading: false
-        })
-      })
-  }, [])
+//   useEffect(() => {
+//     getGenreAnimes()
+//       .then(genre => {
+//         // debugger
+//         setState({
+//           genreData: genre,
+//           loading: false
+//         })
+//       })
+//   }, [])
 
-  return state
-}
+//   return state
+// }

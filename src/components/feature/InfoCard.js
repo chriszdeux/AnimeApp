@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+// LazyLoadImage
 export const InfoCard = ( anime ) => {
 
     const {
@@ -18,7 +19,7 @@ export const InfoCard = ( anime ) => {
     <section className="info__card">
       
       <figure className="info__card__img">
-        <img src={image} alt={title}/>
+        <LazyLoadImage src={image} alt={title}/>
         <h3>{ title }</h3>
       </figure>
       <hr/>

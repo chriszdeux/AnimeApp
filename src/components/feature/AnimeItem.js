@@ -6,11 +6,12 @@ import { IoCloseOutline } from 'react-icons/io5';
 
 import './feature-styles.css';
 import { InfoCard } from './InfoCard';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const AnimeItem = (anime) => {
 
   const [showContent, toggleShowContent] = useShowContent();
-
+// LazyLoadImage
 
   // const [open, setOpen] = useState(false)
 
@@ -26,7 +27,7 @@ export const AnimeItem = (anime) => {
   return (
     <li className="anime__item">
       <div className="feature__content">
-        <img src={image} alt={title}/>
+        <LazyLoadImage src={image} alt={title} loading="lazy" />
         <div>
           <p className="feature--title">{ shortName }...</p>
           <p className="feature--synopsis">Episodes: <small>{ episodes }</small></p>

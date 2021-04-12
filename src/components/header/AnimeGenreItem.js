@@ -1,25 +1,25 @@
 import React, { useState } from 'react'
 import { CategoryPage } from '../pages/CategoryPage'
 // import { useFetchGenreAnime } from '../../hooks/useFetchAnime'
-
+import { dataGenre } from '../../data/dataGenre'
 export const AnimeGenreItem = ({genreData}) =>{
-  const [state, setState] = useState(genreData)
+  // const [state, setState] = useState(genreData)
   // const { genreTitle } = genreData
-  const handleShowInfo = ( anime, name ) => {
-    setState(anime)
-    console.log(name)
-    console.log(anime)
+  const handleShowInfo = (  ) => {
+    // setState(anime)
+    // console.log(name)
+    // console.log(anime)
   }
   // debugger
   return (
     <ul className="genre__list">
       {
-        genreData.map(({mal_url:{name, mal_id}, anime}) => (
+        dataGenre.map(item => (
             <li 
-            key={mal_id} 
+            key={item} 
             className="genre--item"
-            onClick={() => handleShowInfo(anime, name)}
-            >{ name }</li>
+            onClick={() => handleShowInfo(item)}
+            >{ item }</li>
             // <CategoryPage />
         ))
       }

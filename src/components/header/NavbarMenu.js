@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { IoReorderFourSharp as MenuIcon, IoSearchOutline, IoCloseOutline as CloseIcon} from 'react-icons/io5';
 
-import { useFetchAnime, useFetchGenreAnime, useFetchTopAnime } from '../../hooks/useFetchAnime';
+import { useFetchAnime,  useFetchTopAnime } from '../../hooks/useFetchAnime';
 import { useShowContent } from '../../hooks/useShowContent';
 
 
@@ -18,17 +18,17 @@ export const NavbarMenu = () => {
   const [showContent, toggleShowContent] = useShowContent();
   const [anime, setAnime] = useState('');
   const { data, loading } = useFetchAnime(anime);
-  const { genreData } = useFetchGenreAnime();
+  // const { genreData } = useFetchGenreAnime();
 
   // debugger
   useEffect(() => {
     
   }, [anime])
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [ genreData ])
-  console.log(data)
+  // }, [ genreData ])
+  // console.log(data)
   
   return (
     <header  >
@@ -53,7 +53,8 @@ export const NavbarMenu = () => {
               <SearchInput setAnime={ setAnime }/>
 
               <AbcChart/>
-              <AnimeGenreItem genreData={ genreData }/>
+              <AnimeGenreItem />
+              {/* <AnimeGenreItem genreData={ genreData }/> */}
             </Modal>
         </div>
       </nav>

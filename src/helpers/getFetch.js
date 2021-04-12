@@ -53,6 +53,7 @@ export const getSearchAnimes = async ( anime ) => {
 export const getTopAnimes = async () => {
   const topAnimeResponse = await fetch(`${MAIN_URL}${top10Animes}`, myCredentials);
   const { top } = await topAnimeResponse.json()
+  // debugger
   const animeTop = top.map(anime => {
     return {
       id: anime.mal_id,
@@ -89,49 +90,62 @@ export const getSeasonAnimes = async () => {
   return animeData
 }
 
-export const getGenreAnimes = async () => {
+// export const getGenreAnimes = async () => {
 
-  let genreAnimes = [];
-  let animeByGenre = [];
+//   let genreAnimes = [];
+//   // let animeByGenre = [];
+//   // let tempArray = [];
 
-  try {
-    for (let i = 1; i < 44; i ++) {
-      const response = await fetch(`${MAIN_URL}genre/anime/${i}/1`,myCredentials);
+//   const repsTest = await fetch(`${MAIN_URL}genre/anime/1/`, myCredentials);
+//   const myData = await repsTest.json();
+//   // debugger
 
-      const data = await response.json();
-      genreAnimes.push(data)
-      // return {
-        //   genreTitle: ,
-        //   animesByGenre: anime
-        // }
-        // debugger
-        // return [...name]
-        // animeByGenre = [...anime];
+//   try {
+//       for (let i = 1; i < 44; i ++) {
+//       const response = await fetch(`${MAIN_URL}genre/anime/${i}/1`,myCredentials);
+
+//       const { mal_url:{name} } = await response.json();
+//       genreAnimes.push(name)
+//       // debugger
+//       // console.log(genreAnimes)
+//       // return {
+//         //   genreTitle: ,
+//         //   animesByGenre: anime
+//         // }
+//         // debugger
+//         // return [...name]
+//         // animeByGenre = [...anime];
         
-        // genreAnimes = [genreAnimes, ...name]
-        // debugger
-      }
-    } catch (error) {
-      console.error('data not found')
-    }
-    // console.log(genreAnimes)
-    // debugger
-    // return [genreAnimes, animeByGenre];
-    // return genreAnimes
-    // const getAnimeGenre = genreAnimes.map(category => {
-      //   // debugger
-      //   return category
-      // });
+//         // genreAnimes = [genreAnimes, ...name]
+//         // debugger
+//         // tempArray.push(genreAnimes)
+//         // debugger
+//       }
+//     } catch (error) {
+//       console.error('data not found')
+//     }
+//     // console.log(genreAnimes)
+//     // debugger
+//     // return [genreAnimes, animeByGenre];
+//     // return genreAnimes
+//     // const getAnimeGenre = genreAnimes.map(category => {
+//       //   // debugger
+//       //   return category
+//       // });
       
-      // debugger
-      // const getAnimeByGenre = animeByGenre.map(category => {
-        //   return {
-          //     // name:
-          //   }
-          // })
-          // return getAnimeGenre;
-          // debugger
-          return genreAnimes
-        }
+//       // debugger
+//       // const getAnimeByGenre = animeByGenre.map(category => {
+//         //   return {
+//           //     // name:
+//           //   }
+//           // })
+//           // return getAnimeGenre;
+//           // debugger
+//           // console.table(tempArray)
+//           // debugger
+//           console.log(genreAnimes)
+//           // debugger
+//           return genreAnimes
+//         }
         
         // getGenreAnimes();

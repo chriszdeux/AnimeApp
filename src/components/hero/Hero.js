@@ -1,4 +1,5 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useFetchTopAnime } from '../../hooks/useFetchAnime'
 
 import './hero-styles.css';
@@ -10,7 +11,7 @@ export const Hero = () => {
   // debugger
   return (
     <main className="hero">
-      <img src={image} alt=""/>
+      <LazyLoadImage src={image} alt=""/>
       
       <div>
         <h3>{title}</h3>
